@@ -7,7 +7,7 @@ entity display is
            monedero :   in STD_LOGIC_VECTOR (7 downto 0);
            producto :   in STD_LOGIC_VECTOR (3 downto 0);
            clk :        in STD_LOGIC;
-           posicion_led:out STD_LOGIC_VECTOR (7 downto 0);              --devuelve 
+           posicion_led:out STD_LOGIC_VECTOR (7 downto 0);               
            codigo_led:  out STD_LOGIC_VECTOR(6 downto 0);
            done :       out STD_LOGIC);
 end display;
