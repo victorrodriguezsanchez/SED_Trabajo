@@ -1,0 +1,14 @@
+main.c:80:6:HAL_GPIO_EXTI_Callback	16	static
+main.c:118:6:subirpersiana	8	static
+main.c:137:6:bajarpersiana	8	static
+main.c:155:5:servo_girar_up	16	static
+main.c:164:5:servo_girar_down	16	static
+main.c:174:6:mensaje_buenos_dias	8	static
+main.c:183:6:mensaje_buenos_noches	8	static
+main.c:198:5:main	8	static
+main.c:296:6:SystemClock_Config	88	static
+main.c:340:13:MX_ADC1_Init	24	static
+main.c:390:13:MX_TIM1_Init	96	static
+main.c:465:13:MX_TIM4_Init	32	static
+main.c:510:13:MX_GPIO_Init	48	static
+main.c:573:6:Error_Handler	4	static,ignoring_inline_asm
