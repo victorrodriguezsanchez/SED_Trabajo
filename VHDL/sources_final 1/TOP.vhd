@@ -17,7 +17,6 @@ entity TOP is
     );
 end TOP;
 
-
 architecture Behavioral of TOP is
 ---------------------------------------------------------------------------------- Declaración de componenetes
     component tratamientoseniales                                               -- Componente tratamientoseniales, acondiciona las señales para su uso
