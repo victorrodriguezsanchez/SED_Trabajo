@@ -38,7 +38,7 @@ end monedero;
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 architecture Behavioral of monedero is
-signal cnt : std_logic_vector(7 downto 0) := "00000000"; --se inicia el valor de la ceunta a cero
+signal cnt : std_logic_vector(7 downto 0) := "00000000"; --se inicia el valor de la cuenta a cero
 begin
     process (clk, reset)
     begin
