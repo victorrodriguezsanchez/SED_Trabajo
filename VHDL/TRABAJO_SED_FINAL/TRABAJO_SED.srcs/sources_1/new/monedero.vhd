@@ -22,30 +22,23 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
 
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
-
+--Este bloque es un contador síncrono que aumenta en función de la moneda introducida
 entity monedero is
     port(
-        clk : in std_logic;
-        reset : in std_logic;
-        cent100 : in std_logic;
-        cent50 : in std_logic;
-        cent20 : in std_logic;
-        cent10 : in std_logic;
-        count: out std_logic_vector(7 downto 0)
+        clk : in std_logic; --entrada de reloj
+        reset : in std_logic; --entrada de RESET
+        cent100 : in std_logic; --entrada moneda de 1 euro
+        cent50 : in std_logic; --entrada moneda 50 céntimos
+        cent20 : in std_logic; --entrada moneda 20 céntimos
+        cent10 : in std_logic; --entrada moneda 10 céntimos
+        count: out std_logic_vector(7 downto 0) --salida valor de la cuenta
     );
 end monedero;
-
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 architecture Behavioral of monedero is
-signal cnt : std_logic_vector(7 downto 0) := "00000000";
+signal cnt : std_logic_vector(7 downto 0) := "00000000"; --se inicia el valor de la ceunta a cero
 begin
     process (clk, reset)
     begin
