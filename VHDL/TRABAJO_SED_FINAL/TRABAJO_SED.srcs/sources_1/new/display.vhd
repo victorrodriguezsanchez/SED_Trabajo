@@ -11,7 +11,7 @@ entity display is
            monedero :   in STD_LOGIC_VECTOR (7 downto 0);               -- valores del contador de dinero para escribir en el estado "01"
            producto :   in STD_LOGIC_VECTOR (3 downto 0);               -- producto seleccionado para escribir en el estado "00"
            clk :        in STD_LOGIC;                                   -- reloj para sincronizar los displays con el programa
-           posicion_led:out STD_LOGIC_VECTOR (7 downto 0);              -- vector de salida que devuelve el led que se debe encender en cada momento 
+           posicion_led:out STD_LOGIC_VECTOR (7 downto 0);              -- vector de salida que devuelve el led que se debe encender en cada momento (siempre con solo uno de los dígitos con valor "0")
            codigo_led:  out STD_LOGIC_VECTOR(6 downto 0));              -- vector de salida con el código para encender los leds de los display para formar una letra o número
 end display;
 
