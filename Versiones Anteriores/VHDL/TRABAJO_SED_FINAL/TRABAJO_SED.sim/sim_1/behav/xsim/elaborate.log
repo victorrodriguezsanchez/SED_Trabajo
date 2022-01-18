@@ -1,0 +1,27 @@
+Vivado Simulator v2021.1
+Copyright 1986-1999, 2001-2021 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2021.1/bin/unwrapped/win64.o/xelab.exe -wto e95eb736a5324c7186e8c11d9e2694e7 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot TOP_tb_behav xil_defaultlib.TOP_tb -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.std_logic_arith
+Compiling package ieee.std_logic_unsigned
+Compiling package ieee.numeric_std
+Compiling architecture behavioral of entity xil_defaultlib.sincronizador [sincronizador_default]
+Compiling architecture behavioral of entity xil_defaultlib.detectorflancos [\detectorflancos(sensibilidad=5)...]
+Compiling architecture behavioral of entity xil_defaultlib.tratamientoseniales [\tratamientoseniales(inputsize=4...]
+Compiling architecture behavioral of entity xil_defaultlib.monedero [monedero_default]
+Compiling architecture behavioral of entity xil_defaultlib.Selector_producto [selector_producto_default]
+Compiling architecture behavioral of entity xil_defaultlib.motor_salida [motor_salida_default]
+Compiling architecture behavioral of entity xil_defaultlib.FSM [\FSM(frecuenciarelojkhz=1)\]
+Compiling architecture behavioral of entity xil_defaultlib.decodificador [decodificador_default]
+Compiling architecture behavioral of entity xil_defaultlib.display [display_default]
+Compiling architecture behavioral of entity xil_defaultlib.TOP [\TOP(frecuenciarelojkhz=1)\]
+Compiling architecture behavioral of entity xil_defaultlib.top_tb
+Built simulation snapshot TOP_tb_behav

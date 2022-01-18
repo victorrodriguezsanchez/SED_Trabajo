@@ -1,0 +1,4 @@
+Time resolution is 1 ps
+Failure: Top: simulación finalizada
+Time: 22100 ms  Iteration: 0  Process: /TOP_tb/line__50  File: C:/Users/shuos/Desktop/TRABAJO_SED/TRABAJO_SED.srcs/sources_1/new/TOP_tb.vhd
+$finish called at time : 22100 ms : File "C:/Users/shuos/Desktop/TRABAJO_SED/TRABAJO_SED.srcs/sources_1/new/TOP_tb.vhd" Line 76
