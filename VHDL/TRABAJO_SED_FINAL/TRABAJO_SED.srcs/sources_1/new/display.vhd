@@ -1,36 +1,36 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.Numeric_Std.ALL;
---Este módulo se encarga de dibujar el carácter que se debe representar en cada display dependiendo del estado
---Para ello, devuelve el display en el que va a dibujar y el carácter que escribirá.
---Las salidas están codificadas para poder ser conectadas directamente a la placa.
---El display que se escribe rota cada ciclo del programa para que a la vista del usuario parezca que todos los displays están encendidos a la vez.
+--Este mÃ³dulo se encarga de dibujar el carÃ¡cter que se debe representar en cada display dependiendo del estado
+--Para ello, devuelve el display en el que va a dibujar y el carÃ¡cter que escribirÃ¡.
+--Las salidas estÃ¡n codificadas para poder ser conectadas directamente a la placa.
+--El display que se escribe rota cada ciclo del programa para que a la vista del usuario parezca que todos los displays estÃ¡n encendidos a la vez.
 entity display is
-    generic(prescaler:integer:=1000);                                   -- sirve para modificar la velocidad de rotación del display que se va a escribir
+    generic(prescaler:integer:=1000);                                   -- sirve para modificar la velocidad de rotaciÃ³n del display que se va a escribir
     Port ( estado :     in STD_LOGIC_VECTOR (1 downto 0);               -- estado del fsm que decide que mensaje se va a escribir             
            monedero :   in STD_LOGIC_VECTOR (7 downto 0);               -- valores del contador de dinero para escribir en el estado "01"
            producto :   in STD_LOGIC_VECTOR (3 downto 0);               -- producto seleccionado para escribir en el estado "00"
            clk :        in STD_LOGIC;                                   -- reloj para sincronizar los displays con el programa
-           posicion_led:out STD_LOGIC_VECTOR (7 downto 0);              -- vector de salida que devuelve el led que se debe encender en cada momento (siempre con solo uno de los dígitos con valor "0")
-           codigo_led:  out STD_LOGIC_VECTOR(6 downto 0));              -- vector de salida con el código para encender los leds de los display para formar una letra o número
+           posicion_led:out STD_LOGIC_VECTOR (7 downto 0);              -- vector de salida que devuelve el led que se debe encender en cada momento 
+           codigo_led:  out STD_LOGIC_VECTOR(6 downto 0));              -- vector de salida con el cÃ³digo para encender los leds de los display para formar una letra o nÃºmero
 end display;
 
 architecture Behavioral of display is
--------------------------------------------------------------------------- declaración del decodificador del mensaje
+-------------------------------------------------------------------------- declaraciÃ³n del decodificador del mensaje
     COMPONENT decodificador
     PORT(
         caracter    : in character;
         led_display : out STD_LOGIC_VECTOR(6 downto 0));
     END COMPONENT;
 -------------------------------------------------------------------------- variables del programa
-    signal caracter     :   character;                                  -- carácter que se le va a pasar al decodificador
-    signal posicion     :   std_logic_vector(7 downto 0):="11111110";   -- copia del parámetro "posición_led"
-    signal monedero_int :   integer;                                    -- señales auxiliares para escribir números variables en los mensajes
+    signal caracter     :   character;                                  -- carÃ¡cter que se le va a pasar al decodificador
+    signal posicion     :   std_logic_vector(7 downto 0):="11111110";   -- copia del parÃ¡metro "posiciÃ³n_led"
+    signal monedero_int :   integer;                                    -- seÃ±ales auxiliares para escribir nÃºmeros variables en los mensajes
     signal centenas     :   integer;
     signal decenas      :   integer;
     signal unidades     :   integer;
 begin
--------------------------------------------------------------------------- el decodificador devuelve en cada ciclo el valor para poder dibujar el símbolo según el carácter enviado
+-------------------------------------------------------------------------- el decodificador devuelve en cada ciclo el valor para poder dibujar el sÃ­mbolo segÃºn el carÃ¡cter enviado
 instancia_decodificador:
     decodificador PORT MAP(caracter=>caracter,led_display=>codigo_led);
 -------------------------------------------------------------------------- con cada tick del programa actualizar el valor de la posicion y el codigo_led  
@@ -38,7 +38,7 @@ instancia_decodificador:
     variable contador:integer :=0;
     begin
         if(rising_edge (clk)) then
--------------------------------------------------------------------------- cálculos previos antes de asignar el valor a los displays
+-------------------------------------------------------------------------- cÃ¡lculos previos antes de asignar el valor a los displays
             contador:=contador+1;
             if contador>prescaler then
                 contador:=0; 
@@ -49,7 +49,7 @@ instancia_decodificador:
             monedero_int <= to_integer(unsigned(monedero)) mod 100;
             decenas <= monedero_int/10;
             unidades <= monedero_int mod 10;
--------------------------------------------------------------------------- dibujar los mensajes dependiendo del estado en el que se está
+-------------------------------------------------------------------------- dibujar los mensajes dependiendo del estado en el que se estÃ¡
             case estado is
                 when "00" =>---------------------------------------------- mensaje de seleccionar producto: SEL P "producto seleccionado"
                     case posicion is
